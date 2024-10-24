@@ -3,15 +3,28 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@chromatic-com/storybook',
+    '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+  docs: {
+    autodocs: 'tag',
+  },
+  viteFinal: async (config) => {
+    // Customize Vite config here if needed
+    return {
+      ...config,
+      optimizeDeps: {
+        ...config.optimizeDeps,
+        include: [...(config.optimizeDeps?.include ?? []), '@swc/core'],
+      },
+    };
+  },
 };
+
 export default config;
