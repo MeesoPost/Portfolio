@@ -7,15 +7,28 @@
     "pnpm": "^9"
   },
   "devDependencies": {
+    "@babel/runtime": "7.25.9",
     "@eslint/js": "9.13.0",
-    "@storybook/react": "8.3.6",
-    "@storybook/react-vite": "8.3.6",
+    "@storybook/addon-a11y": "8.1.9",
+    "@storybook/addon-actions": "8.1.9",
+    "@storybook/addon-docs": "8.1.9",
+    "@storybook/addon-interactions": "8.1.9",
+    "@storybook/addon-links": "8.1.9",
+    "@storybook/addon-viewport": "8.1.9",
+    "@storybook/react": "8.1.9",
+    "@storybook/react-vite": "8.1.9",
+    "@swc/core": "1.7.39",
+    "@tabler/icons-react": "3.20.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/eslint-plugin": "8.6.0",
     "@typescript-eslint/parser": "8.6.0",
+    "@utrecht/component-library-css": "6.1.0",
+    "@utrecht/component-library-react": "7.2.0",
+    "@utrecht/design-tokens": "2.1.1",
     "@vitejs/plugin-react": "4.3.3",
-    "eslint": "9.13.0",
+    "@vitejs/plugin-react-swc": "3.7.1",
+    "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-json": "3.1.0",
@@ -56,5 +69,8 @@
     "fix:ts": "eslint 'src/**/*.{ts,tsx}' --fix",
     "fix:style": "stylelint 'src/**/*.css' --fix",
     "fix:format": "prettier --write ."
+  },
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "5.1.0"
   }
 }
