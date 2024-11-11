@@ -40,11 +40,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   sources,
 }) => {
   return (
-    <div className="ProjectCard">
+    <div className="Project-Card">
       <div className="ProjectCard-content">
-        <Article className="HeadingStatusGroup">
+        <Article className="HeadingStatus-Group">
           <Heading3>{title}</Heading3>
-          <StatusBadge className="StatusBadge--dark">{status}</StatusBadge>
+          <StatusBadge className="StatusBadge-dark">{status}</StatusBadge>
         </Article>
 
         <Paragraph className="ProjectCard-description">{description}</Paragraph>
