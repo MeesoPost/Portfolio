@@ -1,0 +1,501 @@
+:root {
+  /* Enhanced color system with improved contrast */
+  --mees-color-primary: #16324f;
+  --mees-color-secondary: #18435a;
+  --mees-color-background: #f4f9fc;
+  --mees-color-text: #111d4a;
+  --mees-color-link: #0066cc;
+  --mees-color-background-card: #e3f2fd;
+  --mees-link-hover-color: #004c99;
+  --focus-outline-color: #ff8c00;
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Import Atkinson Hyperlegible with performance optimization */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+}
+
+/* Base styles with accessibility improvements */
+body {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--mees-color-text);
+  background-color: var(--mees-color-background);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Skip link for keyboard users */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background: var(--mees-color-primary);
+  color: white;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  top: 0;
+}
+
+/* Navigation and Link Styles */
+nav a {
+  color: var(--mees-color-primary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  background-color: rgba(22, 50, 79, 0.1);
+}
+
+/* Enhanced link styles */
+a {
+  color: var(--mees-color-link);
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--mees-link-hover-color);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus-outline-color);
+  outline-offset: 2px;
+}
+
+/* Button Styles */
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 0.9375rem;
+}
+
+.button a {
+  color: white;
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #2d65bf;
+  display: block;
+  position: relative;
+  padding: 0.4375rem 0.9375rem;
+  border-radius: 0.3125rem;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 0 #083961,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button a:active {
+  top: 3px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button-1 {
+  position: relative;
+  display: inline-block;
+  margin: 1.25rem;
+}
+
+.button-1 a {
+  color: white;
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5a99ff;
+  display: block;
+  position: relative;
+  padding: 0.1875rem 0.4375rem;
+  border-radius: 0.3125rem;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 0 #044c87,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-1 a:active {
+  top: 3px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button:focus {
+  outline: 3px dashed var(--focus-outline-color);
+  outline-offset: 3px;
+}
+
+/* Rest of the styles remain the same */
+.nav-text {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--mees-color-background);
+}
+
+.project-knop {
+  display: inline-block;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  position: relative;
+  transition: var(--transition);
+  color: var(--mees-color-link);
+}
+
+/* Improved heading styles with better spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: 1.5rem;
+  scroll-margin-top: 2ex;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-block-end: 1.5rem;
+}
+
+h2 {
+  font-weight: bolder;
+  font-size: 2.9375rem;
+  margin-block: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+p {
+  margin-block-end: 1rem;
+  max-width: 65ch;
+}
+
+.heading-title-big {
+  font-size: 5rem !important;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.heading-title-small {
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+section {
+  margin-block: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Improved form accessibility */
+form input,
+form textarea,
+form {
+  display: block;
+  width: 100%;
+  padding-block: 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 2px solid var(--mees-color-primary);
+  outline-offset: 2px;
+}
+
+.projecten-lijst {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.project-kaart {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  background-color: var(--mees-color-background);
+  color: var(--mees-color-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.project-kaart:hover {
+  transform: translateY(-4px);
+}
+
+/* Enhanced button styles */
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 0.9375rem;
+}
+
+.button a {
+  color: white;
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #2d65bf;
+  display: block;
+  position: relative;
+  padding: 0.4375rem 0.9375rem;
+  border-radius: 0.3125rem;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 0 #083961,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button a:active {
+  top: 3px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button:focus {
+  outline: 3px dashed var(--focus-outline-color);
+  outline-offset: 3px;
+}
+
+.button-1 {
+  position: relative;
+  display: inline-block;
+  margin: 1.25rem;
+}
+
+.button-1 a {
+  color: white;
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5a99ff;
+  display: block;
+  position: relative;
+  padding: 0.1875rem 0.4375rem;
+  border-radius: 0.3125rem;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 3px 0 #044c87,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-1 a:active {
+  top: 3px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.line-1 {
+  height: 5px;
+  background: linear-gradient(
+    to bottom,
+    transparent 2px,
+    black 2px,
+    rgb(0, 85, 255) 3px,
+    transparent 3px
+  );
+}
+
+.page-header::after {
+  transform-origin: bottom center;
+  position: absolute;
+  width: 1px;
+  height: 25vh;
+  left: 220px;
+  top: 100%;
+  background: var(--mees-color-text);
+  opacity: 0.45;
+}
+
+.vertical-line {
+  height: 400px;
+  border-right: 1px solid var(--mees-color-link);
+  margin: 3%;
+}
+
+#head-text {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 9;
+  color: var(--mees-color-background);
+}
+
+.mees {
+  width: 20%;
+  transform: rotate(-0.25turn);
+  margin-left: 50%;
+}
+
+.heading-2 {
+  margin-left: 0.625rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-line-text,
+.right-line-text {
+  margin-left: 5%;
+  flex: 1;
+  justify-content: center;
+}
+
+.project-heading-title {
+  margin-inline-start: 20px;
+  margin-block-start: 40px;
+  display: flex;
+}
+
+.svg-spacing-external-svg {
+  margin-inline-start: 0.3125rem;
+  margin-block-end: 0.125rem;
+}
+
+.svg-spacing {
+  display: flex;
+  align-items: center;
+  width: 3.5625rem;
+}
+
+svg {
+  fill: currentColor;
+  transition: color 0.2s ease;
+}
+
+svg:hover {
+  color: var(--mees-link-hover-color);
+}
+
+.heading-status-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .heading-title-big {
+    font-size: 3rem !important;
+  }
+
+  .project-kaart {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mees-color-background: #1a1a1a;
+    --mees-color-text: #ffffff;
+    --mees-color-background-card: #2d2d2d;
+    --mees-color-link: #66b3ff;
+    --mees-link-hover-color: #99ccff;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .project-kaart:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: none;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .button,
+  .button-1,
+  nav,
+  .skip-to-main {
+    display: none;
+  }
+}
