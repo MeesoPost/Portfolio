@@ -28,7 +28,7 @@ const App: React.FC = () => {
           Vite, and Next.js. One of my favorite recent projects involved working with Storybook and
           the NL Design System
         </Paragraph>
-        <div className="verticalLine" />
+        <div className="vertical-line" />
         <Paragraph className="right-line-text">
           Outside of my studies, I enjoy watching movies and TV series, listening to music, and
           playing games. I am primarily interested in Frontend, and I am enthusiastic about
