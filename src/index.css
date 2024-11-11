@@ -44,7 +44,25 @@ body {
   top: 0;
 }
 
-/* Navigation and Link Styles */
+/* Enhanced link styles */
+a {
+  color: var(--mees-color-link);
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+  transition: color 0.2s ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus-outline-color);
+  outline-offset: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--mees-link-hover-color);
+}
+
 nav a {
   color: var(--mees-color-primary);
   text-decoration: none;
@@ -57,96 +75,6 @@ nav a:hover {
   background-color: rgba(22, 50, 79, 0.1);
 }
 
-/* Enhanced link styles */
-a {
-  color: var(--mees-color-link);
-  text-decoration: none;
-  text-underline-offset: 0.15em;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: var(--mees-link-hover-color);
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--focus-outline-color);
-  outline-offset: 2px;
-}
-
-/* Button Styles */
-.button {
-  position: relative;
-  display: inline-block;
-  margin: 0.9375rem;
-}
-
-.button a {
-  color: white;
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: center;
-  text-decoration: none;
-  background-color: #2d65bf;
-  display: block;
-  position: relative;
-  padding: 0.4375rem 0.9375rem;
-  border-radius: 0.3125rem;
-  transition: all 0.2s ease;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 3px 0 #083961,
-    0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.button a:active {
-  top: 3px;
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.button-1 {
-  position: relative;
-  display: inline-block;
-  margin: 1.25rem;
-}
-
-.button-1 a {
-  color: white;
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: center;
-  text-decoration: none;
-  background-color: #5a99ff;
-  display: block;
-  position: relative;
-  padding: 0.1875rem 0.4375rem;
-  border-radius: 0.3125rem;
-  transition: all 0.2s ease;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 3px 0 #044c87,
-    0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.button-1 a:active {
-  top: 3px;
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.button:focus {
-  outline: 3px dashed var(--focus-outline-color);
-  outline-offset: 3px;
-}
-
-/* Rest of the styles remain the same */
 .nav-text {
   font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
   font-size: 1rem;
