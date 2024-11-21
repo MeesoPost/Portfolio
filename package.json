@@ -2,9 +2,10 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@8.x",
   "engines": {
-    "node": "^20",
-    "pnpm": "^9"
+    "node": ">=18",
+    "pnpm": ">=8"
   },
   "devDependencies": {
     "@babel/runtime": "7.25.9",
