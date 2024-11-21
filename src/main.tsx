@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-
-// Add some basic global styles
 import './index.css';
 import { Page } from '@utrecht/component-library-react';
 

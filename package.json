@@ -72,6 +72,9 @@
     "fix:format": "prettier --write ."
   },
   "dependencies": {
-    "@fontsource/atkinson-hyperlegible": "5.1.0"
+    "@emailjs/browser": "4.4.1",
+    "@fontsource/atkinson-hyperlegible": "5.1.0",
+    "@types/react-router-dom": "5.3.3",
+    "react-router-dom": "6.28.0"
   }
 }

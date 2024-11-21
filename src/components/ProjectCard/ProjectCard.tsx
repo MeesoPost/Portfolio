@@ -26,6 +26,7 @@ interface ProjectCardProps {
   githubUrl?: string;
   demoUrl?: string;
   sources?: Source[];
+  showPreviewLabel?: boolean; // New optional prop
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -38,6 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   githubUrl,
   demoUrl,
   sources,
+  showPreviewLabel = true, // Default to true to maintain backward compatibility
 }) => {
   return (
     <div className="Project-Card">
@@ -98,7 +100,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       <div className="ProjectCard-image">
-        <Strong className="ProjectCard-preview-label">PREVIEW</Strong>
+        {showPreviewLabel && <Strong className="ProjectCard-preview-label">PREVIEW</Strong>}
         <Image alt={imageAlt} src={imageSrc} height={200} width={265} />
       </div>
     </div>
