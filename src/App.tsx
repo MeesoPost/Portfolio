@@ -33,12 +33,8 @@ const Home = () => (
         playing games. I am primarily interested in Frontend, and I am enthusiastic about continuing
         to learn and master new skills in this field.
       </Paragraph>
-      <div className="flex justify-center mt-8">
-        <NavLink to="/contact" className="button-contact">
-          Get in touch
-        </NavLink>
-      </div>
     </Article>
+
     <Article>
       <Heading2 className="project-heading-title">Projects</Heading2>
       <ProjectCard
@@ -102,6 +98,11 @@ const Home = () => (
         ]}
       />
     </Article>
+    <div className="flex justify-center mt-8">
+      <NavLink to="/contact" className="button-contact">
+        Get in touch
+      </NavLink>
+    </div>
   </Article>
 );
 
