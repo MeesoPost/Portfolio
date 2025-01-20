@@ -10,12 +10,12 @@ import {
 import React from 'react';
 import { createBrowserRouter, RouterProvider, NavLink, Outlet } from 'react-router-dom';
 import ProjectCard from './components/ProjectCard/ProjectCard';
-import Contact from './components/Contact/Contact'; // Updated import
-import preview_MS_Maas_95 from './assets/preview_MS_Maas_95.png';
+import Contact from './components/Contact/Contact';
 import voorbeeld from './assets/voorbeeld.svg';
+import { Button } from './components/Button/Button';
 
 const Home = () => (
-  <Article>
+  <Article className="article_flex">
     <Heading1 className="heading-title-small">Heyo! my name is,</Heading1>
     <Heading1 className="heading-title-big">Mees Post</Heading1>
     <Article className="container">
@@ -38,53 +38,11 @@ const Home = () => (
     <Article>
       <Heading2 className="project-heading-title">Projects</Heading2>
       <ProjectCard
-        title={'MS Maas 95'}
-        status={'In Progress'}
-        description={
-          'MS Maas95 is a nostalgic Windows 95 themed web application built with Next.js, React95, and TypeScript. It allows users to submit requests for movies and series in a fun, retro-styled interface.'
-        }
-        imageSrc={preview_MS_Maas_95}
-        imageAlt={'MS Maas 95 website preview in windows 95 style'}
-        tags={[
-          'Nextjs',
-          'React',
-          'TypeScript',
-          'React95 (storybook)',
-          'NL Design System',
-          'Utrecht Components',
-        ]}
-        githubUrl={'https://github.com/MeesoPost/react95'}
-        demoUrl={'https://react95-meesoposts-projects.vercel.app/'}
-        sources={[
-          {
-            name: 'React95',
-            url: 'https://react95.github.io/React95/?path=/story/all--all',
-          },
-        ]}
-      />
-      <ProjectCard
-        title={'Discord Bot Rust'}
-        status={'In Progress'}
-        description={
-          'A Discord bot written in Rust that manages automatic voice channel creation. Using the Serenity framework and Tokio for async operations, it implements thread-safe state management.'
-        }
-        imageSrc={'poep'}
-        imageAlt={''}
-        tags={['Rust', 'Discord.rs']}
-        githubUrl={'https://github.com/MeesoPost/discord-bot-rust'}
-        sources={[
-          {
-            name: 'Discord.rs',
-            url: 'https://github.com/SpaceManiac/discord-rs',
-          },
-        ]}
-      />
-      <ProjectCard
         title={'Gemeente Voorbeeld'}
         showPreviewLabel={false}
         status={'contributed'}
         description={
-          'Collaboration between Frameless, NL Design System and VNG to experience components in an example layout.'
+          'Collaboration between Frameless, NL Design System and VNG to help new municipalities get started with their website. The project is built with Next.js, TypeScript, and the NL Design System.'
         }
         imageSrc={voorbeeld}
         imageAlt={'Gemeente Voorbeeld website preview'}
@@ -97,12 +55,20 @@ const Home = () => (
           },
         ]}
       />
+      <ProjectCard
+        title="NL Design System storybook"
+        showPreviewLabel={false}
+        status="contributed"
+        description="I set up the storybook for the nldesignsystem.nl website"
+        imageSrc={voorbeeld}
+        imageAlt="picture of storybook"
+        tags={['Storybook', 'React', 'TypeScript']}
+      ></ProjectCard>
     </Article>
-    <div className="flex justify-center mt-8">
-      <NavLink to="/contact" className="button-contact">
-        Get in touch
-      </NavLink>
-    </div>
+
+    <Button className="contact_button" to="/contact">
+      Get in touch
+    </Button>
   </Article>
 );
 
