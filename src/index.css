@@ -29,6 +29,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.contact_button {
+  justify-content: center;
+}
+
 /* Skip link for keyboard users */
 .skip-to-main {
   position: absolute;

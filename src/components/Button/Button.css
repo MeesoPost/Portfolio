@@ -1,0 +1,65 @@
+/* Base button styles */
+.utrecht-button {
+  /* Text styles */
+  color: #050505;
+  font-weight: bold;
+  font-size: inherit;
+  padding: 11px 22px;
+
+  /* Position and dimensions */
+  position: relative;
+  top: -8px;
+  margin: 0 0 20px 0;
+  overflow: hidden;
+
+  /* Appearance */
+  border-radius: 10px;
+  border: solid 2px #8d8a86;
+  background: #c3c2c0;
+  box-shadow:
+    0 8px 0 0 #8d8a86,
+    0 8px 8px 0 rgba(0, 0, 0, 0.4);
+
+  /* Remove smooth transitions */
+  transition: none;
+}
+
+/* Hover state */
+@media (any-hover: hover) {
+  .utrecht-button:hover {
+    cursor: pointer;
+    top: -4px;
+    box-shadow:
+      0 4px 0 0 #8d8a86,
+      0 4px 4px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Active/Pressed state */
+.utrecht-button:active {
+  top: 0px;
+  box-shadow: 0 0 0 0 #8d8a86;
+}
+
+/* Focus state */
+.utrecht-button:focus {
+  outline: solid 4px #d8b600;
+  background: #ffd90c;
+  outline-offset: -6px;
+  color: #050505;
+  text-decoration: none;
+}
+
+/* Touch device specific behavior */
+@media (any-pointer: coarse) {
+  .utrecht-button:active {
+    top: 0px;
+    box-shadow: 0 0 0 0 #8d8a86;
+  }
+}
+
+/* Secondary variant */
+.utrecht-button--secondary {
+  background: #e9e8e6;
+  border-color: #8d8a86;
+}
