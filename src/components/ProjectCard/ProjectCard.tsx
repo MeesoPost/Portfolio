@@ -1,12 +1,4 @@
-import {
-  Article,
-  Heading3,
-  Image,
-  Link,
-  Paragraph,
-  StatusBadge,
-  Strong,
-} from '@utrecht/component-library-react';
+import { Article, Heading3, Link, Paragraph, StatusBadge } from '@utrecht/component-library-react';
 import { IconBrandGithub, IconExternalLink, IconSourceCode } from '@tabler/icons-react';
 import React from 'react';
 import './ProjectCard.css';
@@ -33,13 +25,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   status,
   description,
-  imageSrc,
-  imageAlt,
+
   tags,
   githubUrl,
   demoUrl,
   sources,
-  showPreviewLabel = true, // Default to true to maintain backward compatibility
 }) => {
   return (
     <div className="Project-Card">
@@ -97,11 +87,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </Link>
             ))}
         </div>
-      </div>
-
-      <div className="ProjectCard-image">
-        {showPreviewLabel && <Strong className="ProjectCard-preview-label">PREVIEW</Strong>}
-        <Image alt={imageAlt} src={imageSrc} height={200} width={265} />
       </div>
     </div>
   );
