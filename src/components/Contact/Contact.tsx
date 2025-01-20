@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './Contact.css';
 import emailjs from '@emailjs/browser';
 import { Article, Heading1, Paragraph } from '@utrecht/component-library-react';
-import { IconExclamationCircle, IconCheck, IconLoader2 } from '@tabler/icons-react';
+import { IconExclamationCircle, IconCheck } from '@tabler/icons-react';
 import { validateField } from './validation';
+import { Button } from '../Button/Button';
 
 // Initialize EmailJS
 emailjs.init('Bp6pwc2EkjNGUBYox');
@@ -174,7 +175,7 @@ const Contact: React.FC = () => {
               className="flex items-center mt-2 text-red-500 text-sm"
               role="alert"
             >
-              <IconExclamationCircle className="w-4 h-4 mr-2" />
+              <IconExclamationCircle />
               {errors.name}
             </div>
           )}
@@ -256,22 +257,13 @@ const Contact: React.FC = () => {
           </div>
         )}
 
-        <button
-          type="submit"
-          className="retro-button px-6 py-2 font-medium rounded-lg
-                   disabled:opacity-50 disabled:cursor-not-allowed
-                   transition-all duration-200"
-          disabled={status.type === 'sending'}
-        >
+        <Button type="submit" disabled={status.type === 'sending'}>
           {status.type === 'sending' ? (
-            <span className="flex items-center">
-              <IconLoader2 className="w-5 h-5 mr-2 animate-spin" />
-              Verzenden...
-            </span>
+            <span className="flex items-center">Verzenden...</span>
           ) : (
             'Verstuur bericht'
           )}
-        </button>
+        </Button>
       </form>
     </Article>
   );
