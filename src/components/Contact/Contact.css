@@ -1,8 +1,14 @@
+:root {
+  /* Add other variables if needed */
+  --wcag-error-red-graphic: #cd1f28; /* Red for borders/icons (meets 3:1 on dark) */
+  --wcag-error-red-text: #ff7f7f; /* Lighter red for text (meets 4.5:1 on dark) */
+}
+
 .contact-form {
   background-color: var(--mees-color-background-card);
   padding: 2rem;
   border-radius: 0.625rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   max-width: 800px;
   margin: 2rem auto;
 }
@@ -15,7 +21,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #fff;
 }
 
 .form-input,
@@ -33,7 +39,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--mees-color-link);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 0 0 3px rgb(0 102 204 / 10%);
 }
 
 .form-textarea {
@@ -58,74 +64,72 @@
 
 .submit-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 0 0 3px rgb(0 102 204 / 30%);
 }
 
-.contact_article {
+.contact-article {
   padding: 10px;
   margin-inline-start: 416px;
-  color: #ffffff;
-  padding: 10px;
+  color: #fff;
+  background-color: rgb(255 255 255 / 20%);
 }
 
 /* Retro Input Styles */
 .retro-input {
   transition: all 0.2s ease-in-out;
-  box-shadow: 2px 2px 0 #ffffff;
-  border: 2px solid #ffffff;
+  box-shadow: 2px 2px 0 #fff;
+  border: 2px solid #fff;
   background-color: transparent;
   width: 328px;
-  color: #ffffff;
+  color: #fff;
 }
 
-.retro-textarea {
-  transition: all 0.2s ease-in-out;
-  box-shadow: 2px 2px 0 #ffffff;
-  border: 2px solid #ffffff;
-  background-color: transparent;
-  width: 400px;
-  color: #ffffff;
-}
-
-.retro-input:focus,
-.retro-textarea:focus {
+.retro-input:focus {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #ffffff;
+  box-shadow: 4px 4px 0 #fff;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
 }
 
-.retro-input:disabled,
-.retro-textarea:disabled {
-  background-color: rgba(255, 255, 255, 0.1);
+.retro-input:disabled {
+  background-color: rgb(255 255 255 / 10%);
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.retro-input.error {
+  border-left: 4px solid var(--wcag-error-red-graphic);
+  box-shadow: 2px 2px 0 var(--wcag-error-red-graphic);
+  border-color: var(--wcag-error-red-graphic);
+}
+
+.retro-input.error:focus {
+  box-shadow: 4px 4px 0 var(--wcag-error-red-graphic);
 }
 
 /* Retro Button Styles */
 .retro-button {
   transition: all 0.2s ease-in-out;
-  box-shadow: 2px 2px 0 #ffffff;
-  border: 2px solid #ffffff;
+  box-shadow: 2px 2px 0 #fff;
+  border: 2px solid #fff;
   background-color: #ffeb3b;
-  color: #000000;
+  color: #000;
+}
+
+.retro-button:disabled {
+  background-color: rgb(255 255 255 / 10%);
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .retro-button:hover:not(:disabled) {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #ffffff;
+  box-shadow: 4px 4px 0 #fff;
 }
 
 .retro-button:active:not(:disabled) {
   transform: translate(0, 0);
-  box-shadow: 2px 2px 0 #ffffff;
-}
-
-.retro-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  box-shadow: 2px 2px 0 #fff;
 }
 
 /* Status Messages */
@@ -136,36 +140,72 @@
 }
 
 .status-message.success {
-  background-color: rgba(34, 197, 94, 0.1);
+  background-color: rgb(34 197 94 / 10%);
   border: 1px solid #22c55e;
   color: #22c55e;
 }
 
 .status-message.error {
-  background-color: rgba(255, 59, 59, 0.1);
+  background-color: rgb(255 59 59 / 10%);
   border: 1px solid #ff3b3b;
   color: #ff3b3b;
 }
 
 /* Form Validation */
-.retro-input.error,
+.retro-textarea {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 2px 2px 0 #fff;
+  border: 2px solid #fff;
+  background-color: transparent;
+  width: 400px;
+  color: #fff;
+}
+
+.retro-textarea:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #fff;
+  outline: none;
+  background-color: rgb(255 255 255 / 10%);
+}
+
+.retro-textarea:disabled {
+  background-color: rgb(255 255 255 / 10%);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .retro-textarea.error {
   border-color: #ff3b3b;
   box-shadow: 2px 2px 0 #ff3b3b;
 }
 
+/* Error Messages */
 .error-message {
   color: #ff3b3b;
   font-size: 0.875rem;
   margin-top: 0.5rem;
-  background-color: rgba(255, 59, 59, 0.1);
+  background-color: rgb(255 59 59 / 10%);
   padding: 0.5rem;
   border: 1px solid #ff3b3b;
   border-radius: 4px;
 }
 
+.field-error-message {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: var(--wcag-error-red-text);
+  font-size: 0.875rem;
+}
+
+/* Required Indicators */
 .required-indicator {
   color: #ff3b3b;
+  margin-left: 0.25rem;
+}
+
+.required-indicator-wcag {
+  color: var(--wcag-error-red-text);
   margin-left: 0.25rem;
 }
 
@@ -178,13 +218,26 @@
 /* Placeholder and Selection Styles */
 .retro-input::placeholder,
 .retro-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255 255 255 / 50%);
 }
 
 .retro-input::selection,
 .retro-textarea::selection {
   background-color: #ffeb3b;
-  color: #000000;
+  color: #000;
+}
+
+/* Animations */
+@keyframes slide-in {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Media Queries */
@@ -201,110 +254,9 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .contact-form {
     padding: 1.5rem;
     margin: 1rem;
   }
-}
-
-.retro-input {
-  transition: all 0.2s ease-in-out;
-  box-shadow: 2px 2px 0 #ffffff;
-  border: 2px solid #ffffff;
-  background-color: transparent;
-  color: #ffffff;
-}
-
-.retro-input:focus {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #ffffff;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.retro-input:disabled {
-  background-color: rgba(255, 255, 255, 0.1);
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-/* Error state */
-.retro-input.error {
-  border-left: 4px solid #ef4444;
-  box-shadow: 2px 2px 0 #ef4444;
-  border-color: #ef4444;
-}
-
-.retro-input.error:focus {
-  box-shadow: 4px 4px 0 #ef4444;
-}
-
-/* Retro button styles */
-.retro-button {
-  transition: all 0.2s ease-in-out;
-  box-shadow: 2px 2px 0 #ffffff;
-  border: 2px solid #ffffff;
-  background-color: #ffeb3b;
-  color: #000000;
-}
-
-.retro-button:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #ffffff;
-}
-
-.retro-button:active:not(:disabled) {
-  transform: translate(0, 0);
-  box-shadow: 2px 2px 0 #ffffff;
-}
-
-.retro-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-/* Form group spacing */
-.form-group {
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-/* Error message animation */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-[role='alert'] {
-  animation: slideIn 0.2s ease-out;
-}
-
-/* Status message styles */
-.status-message {
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Placeholder styles */
-.retro-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* Selection styles */
-.retro-input::selection {
-  background-color: #ffeb3b;
-  color: #000000;
 }

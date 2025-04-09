@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './Contact.css';
 import emailjs from '@emailjs/browser';
 import { Article, Heading1, Paragraph } from '@utrecht/component-library-react';
-import { IconExclamationCircle, IconCheck } from '@tabler/icons-react';
 import { validateField } from './validation';
 import { Button } from '../Button/Button';
+import InformatieIcon from '../../assets/Informatie.svg?react';
+import VergunningAlgemeen from '../../assets/VergunningAlgemeen.svg?react';
 
 // Initialize EmailJS
 emailjs.init('Bp6pwc2EkjNGUBYox');
 
-// Define types for form fields
 type FormField = 'name' | 'email' | 'message';
 
 interface FormData {
@@ -49,6 +49,9 @@ const Contact: React.FC = () => {
     message: null,
   });
 
+  // NEW: State to track if submission attempt resulted in errors
+  const [submittedWithError, setSubmittedWithError] = useState<boolean>(false);
+
   const [status, setStatus] = useState<{
     type: 'idle' | 'sending' | 'sent' | 'error';
     message?: string;
@@ -66,7 +69,7 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Set all fields as touched
+    // Mark all fields as touched on submit attempt
     setTouched({
       name: true,
       email: true,
@@ -78,14 +81,18 @@ const Contact: React.FC = () => {
     const emailError = validateAndUpdateField('email', formData.email);
     const messageError = validateAndUpdateField('message', formData.message);
 
-    if (nameError || emailError || messageError) {
-      setStatus({
-        type: 'error',
-        message: 'Controleer de invoervelden en probeer het opnieuw.',
-      });
+    const hasErrors = !!(nameError || emailError || messageError);
+
+    setSubmittedWithError(hasErrors); // Set state for error summary box
+
+    if (hasErrors) {
+      // No generic status message needed if we show the summary box
+      setStatus({ type: 'idle' });
       return;
     }
 
+    // Clear summary box state if submission proceeds
+    setSubmittedWithError(false);
     setStatus({ type: 'sending' });
 
     try {
@@ -109,6 +116,7 @@ const Contact: React.FC = () => {
       }, 5000);
     } catch (error) {
       console.error('Failed to send email:', error);
+      // Keep generic error for actual send failures
       setStatus({
         type: 'error',
         message: 'Er is iets misgegaan bij het versturen van je bericht. Probeer het opnieuw.',
@@ -123,6 +131,7 @@ const Contact: React.FC = () => {
       [name as FormField]: value,
     }));
 
+    // Validate field if it's been touched
     if (touched[name as FormField]) {
       validateAndUpdateField(name as FormField, value);
     }
@@ -143,7 +152,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <Article className="contact_article">
+    <Article className="contact-article">
       <Heading1 className="heading-title-small">Contact Me</Heading1>
 
       <Paragraph className="mb-8">
@@ -151,11 +160,32 @@ const Contact: React.FC = () => {
         just say hello, I'd love to hear from you.
       </Paragraph>
 
+      {/* Error Summary Box */}
+      {submittedWithError && Object.values(errors).some((e) => e !== null) && (
+        <div className="error-summary-box mb-6" role="alert">
+          <div className="error-summary-header">
+            <InformatieIcon className="error-summary-icon" />
+            <h2 className="error-summary-title">Verbeter de fouten voor u verder gaat</h2>
+          </div>
+          <ul className="error-summary-list">
+            {Object.entries(errors).map(([field, error]) =>
+              error ? (
+                <li key={field}>
+                  <a href={`#${field}`} className="error-summary-link">
+                    {error} (Veld: {field.charAt(0).toUpperCase() + field.slice(1)})
+                  </a>
+                </li>
+              ) : null
+            )}
+          </ul>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="form-group">
           <label className="block mb-2 text-white font-medium" htmlFor="name">
             Naam
-            <span className="text-red-500 ml-1">*</span>
+            <span className="required-indicator-wcag ml-1">*</span>
           </label>
           <input
             type="text"
@@ -170,13 +200,9 @@ const Contact: React.FC = () => {
             aria-describedby={errors.name ? 'name-error' : undefined}
           />
           {touched.name && errors.name && (
-            <div
-              id="name-error"
-              className="flex items-center mt-2 text-red-500 text-sm"
-              role="alert"
-            >
-              <IconExclamationCircle />
-              {errors.name}
+            <div id="name-error" className="field-error-message" role="alert">
+              <InformatieIcon />
+              <span>{errors.name}</span>
             </div>
           )}
         </div>
@@ -184,7 +210,7 @@ const Contact: React.FC = () => {
         <div className="form-group">
           <label className="block mb-2 text-white font-medium" htmlFor="email">
             E-mail
-            <span className="text-red-500 ml-1">*</span>
+            <span className="required-indicator-wcag ml-1">*</span>
           </label>
           <input
             type="email"
@@ -199,13 +225,9 @@ const Contact: React.FC = () => {
             aria-describedby={errors.email ? 'email-error' : undefined}
           />
           {touched.email && errors.email && (
-            <div
-              id="email-error"
-              className="flex items-center mt-2 text-red-500 text-sm"
-              role="alert"
-            >
-              <IconExclamationCircle className="w-4 h-4 mr-2" />
-              {errors.email}
+            <div id="email-error" className="field-error-message" role="alert">
+              <InformatieIcon />
+              <span>{errors.email}</span>
             </div>
           )}
         </div>
@@ -213,7 +235,7 @@ const Contact: React.FC = () => {
         <div className="form-group">
           <label className="block mb-2 text-white font-medium" htmlFor="message">
             Bericht
-            <span className="text-red-500 ml-1">*</span>
+            <span className="required-indicator-wcag ml-1">*</span>
           </label>
           <textarea
             id="message"
@@ -228,31 +250,23 @@ const Contact: React.FC = () => {
             aria-describedby={errors.message ? 'message-error' : undefined}
           />
           {touched.message && errors.message && (
-            <div
-              id="message-error"
-              className="flex items-center mt-2 text-red-500 text-sm"
-              role="alert"
-            >
-              <IconExclamationCircle className="w-4 h-4 mr-2" />
-              {errors.message}
+            <div id="message-error" className="field-error-message" role="alert">
+              <InformatieIcon />
+              <span>{errors.message}</span>
             </div>
           )}
         </div>
 
         {status.message && (
           <div
-            className={`flex items-center p-4 rounded-lg ${
+            className={`flex items-center p-4 rounded-lg gap-2 ${
               status.type === 'sent'
                 ? 'bg-green-100 text-green-800 border border-green-500'
                 : 'bg-red-100 text-red-800 border border-red-500'
             }`}
             role="alert"
           >
-            {status.type === 'sent' ? (
-              <IconCheck className="w-5 h-5 mr-2" />
-            ) : (
-              <IconExclamationCircle className="w-5 h-5 mr-2" />
-            )}
+            {status.type === 'sent' ? <VergunningAlgemeen /> : <InformatieIcon />}
             {status.message}
           </div>
         )}

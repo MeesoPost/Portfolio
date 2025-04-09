@@ -1,5 +1,5 @@
 import { Article, Heading3, Link, Paragraph, StatusBadge } from '@utrecht/component-library-react';
-import { IconBrandGithub, IconExternalLink, IconSourceCode } from '@tabler/icons-react';
+import { Github, ExternalLink, FileCode } from 'lucide-react';
 import React from 'react';
 import './ProjectCard.css';
 
@@ -57,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandGithub size={20} stroke={1.5} />
+              <Github size={20} strokeWidth={1.5} />
               GitHub
             </Link>
           )}
@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconExternalLink size={20} stroke={1.5} />
+              <ExternalLink size={20} strokeWidth={1.5} />
               Live Demo
             </Link>
           )}
@@ -82,7 +82,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <IconSourceCode size={20} stroke={1.5} />
+                <FileCode size={20} strokeWidth={1.5} />
                 {source.name}
               </Link>
             ))}

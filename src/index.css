@@ -4,7 +4,7 @@
   --mees-color-secondary: #18435a;
   --mees-color-background: #f4f9fc;
   --mees-color-text: #111d4a;
-  --mees-color-link: #0066cc;
+  --mees-color-link: #06c;
   --mees-color-background-card: #e3f2fd;
   --mees-link-hover-color: #004c99;
   --focus-outline-color: #ff8c00;
@@ -20,7 +20,7 @@
 
 /* Base styles with accessibility improvements */
 body {
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--mees-color-text);
@@ -29,7 +29,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.contact_button {
+.contact-btn {
   justify-content: center;
 }
 
@@ -56,17 +56,18 @@ a {
   transition: color 0.2s ease;
 }
 
+a:hover {
+  text-decoration: underline;
+  color: var(--mees-link-hover-color);
+}
+
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--focus-outline-color);
   outline-offset: 2px;
 }
 
-a:hover {
-  text-decoration: underline;
-  color: var(--mees-link-hover-color);
-}
-
+/* Navigation styles */
 nav a {
   color: var(--mees-color-primary);
   text-decoration: none;
@@ -76,142 +77,13 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
-  background-color: rgba(22, 50, 79, 0.1);
+  background-color: rgb(22 50 79 / 10%);
 }
 
-.nav-text {
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--mees-color-background);
-}
-
-.project-knop {
-  display: inline-block;
-  text-decoration: none;
-  text-decoration-skip-ink: auto;
-  position: relative;
-  transition: var(--transition);
-  color: var(--mees-color-link);
-}
-
-/* Improved heading styles with better spacing */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-block-end: 1.5rem;
-  scroll-margin-top: 2ex;
-}
-
-h1 {
-  font-size: 3rem;
-  margin-block-end: 1.5rem;
-}
-
-h2 {
-  font-weight: bolder;
-  font-size: 2.9375rem;
-  margin-block: 1.5rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-block: 1.5rem;
-}
-
-p {
-  margin-block-end: 1rem;
-  max-width: 65ch;
-}
-
-.heading-title-big {
-  font-size: 5rem !important;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.heading-title-small {
-  font-size: 1rem;
-  font-weight: 400;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-main {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding-inline: 1rem;
-}
-
-section {
-  margin-block: 2rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-}
-
-/* Improved form accessibility */
-form input,
-form textarea,
-form {
-  display: block;
-  width: 100%;
-  padding-block: 0.75rem;
-  font-family: inherit;
-  font-size: inherit;
-}
-
-form input:focus,
-form textarea:focus {
-  outline: 2px solid var(--mees-color-primary);
-  outline-offset: 2px;
-}
-
-.projecten-lijst {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 1rem;
-}
-
-.project-kaart {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 0.625rem;
-  background-color: var(--mees-color-background);
-  color: var(--mees-color-text);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.project-kaart:hover {
-  transform: translateY(-4px);
-}
-
-/* Enhanced button styles */
-.button {
-  position: relative;
-  display: inline-block;
-  margin: 0.9375rem;
-}
-
-.button a {
-  color: white;
+/* Button styles */
+.button a,
+.button-1 a {
+  color: #fff;
   font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
   font-weight: bold;
   font-size: 0.75rem;
@@ -224,53 +96,22 @@ form textarea:focus {
   border-radius: 0.3125rem;
   transition: all 0.2s ease;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgb(255 255 255 / 15%),
     0 3px 0 #083961,
-    0 4px 6px rgba(0, 0, 0, 0.1);
+    0 4px 6px rgb(0 0 0 / 10%);
 }
 
-.button a:active {
+.button a:active,
+.button-1 a:active {
   top: 3px;
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 1px 2px rgba(0, 0, 0, 0.1);
+    inset 0 2px 4px rgb(0 0 0 / 15%),
+    0 1px 2px rgb(0 0 0 / 10%);
 }
 
 .button:focus {
   outline: 3px dashed var(--focus-outline-color);
   outline-offset: 3px;
-}
-
-.button-1 {
-  position: relative;
-  display: inline-block;
-  margin: 1.25rem;
-}
-
-.button-1 a {
-  color: white;
-  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: center;
-  text-decoration: none;
-  background-color: #5a99ff;
-  display: block;
-  position: relative;
-  padding: 0.1875rem 0.4375rem;
-  border-radius: 0.3125rem;
-  transition: all 0.2s ease;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 3px 0 #044c87,
-    0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.button-1 a:active {
-  top: 3px;
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .line-1 {
@@ -279,7 +120,7 @@ form textarea:focus {
     to bottom,
     transparent 2px,
     black 2px,
-    rgb(0, 85, 255) 3px,
+    rgb(0 85 255) 3px,
     transparent 3px
   );
 }
@@ -349,7 +190,7 @@ form textarea:focus {
 }
 
 svg {
-  fill: currentColor;
+  fill: currentcolor;
   transition: color 0.2s ease;
 }
 
@@ -363,7 +204,7 @@ svg:hover {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   body {
     font-size: 1rem;
   }
@@ -390,10 +231,10 @@ svg:hover {
 @media (prefers-color-scheme: dark) {
   :root {
     --mees-color-background: #1a1a1a;
-    --mees-color-text: #ffffff;
+    --mees-color-text: #fff;
     --mees-color-background-card: #2d2d2d;
     --mees-color-link: #66b3ff;
-    --mees-link-hover-color: #99ccff;
+    --mees-link-hover-color: #9cf;
   }
 }
 
@@ -446,9 +287,9 @@ svg:hover {
   transition: all 0.2s ease;
   position: relative;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgb(255 255 255 / 15%),
     0 3px 0 var(--mees-color-primary),
-    0 4px 6px rgba(0, 0, 0, 0.1);
+    0 4px 6px rgb(0 0 0 / 10%);
 }
 
 .button-contact:hover {
@@ -460,8 +301,8 @@ svg:hover {
 .button-contact:active {
   transform: translateY(1px);
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 1px 2px rgba(0, 0, 0, 0.1);
+    inset 0 2px 4px rgb(0 0 0 / 15%),
+    0 1px 2px rgb(0 0 0 / 10%);
 }
 
 .button-contact:focus-visible {
@@ -474,9 +315,9 @@ svg:hover {
   .button-contact {
     background-color: var(--mees-color-link);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgb(255 255 255 / 10%),
       0 3px 0 #044c87,
-      0 4px 6px rgba(0, 0, 0, 0.2);
+      0 4px 6px rgb(0 0 0 / 20%);
   }
 }
 
@@ -495,7 +336,7 @@ svg:hover {
   position: relative;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #ffffff; /* Changed to white for dark background */
+  color: #fff; /* Changed to white for dark background */
   transition: all 0.2s ease;
 }
 
@@ -508,11 +349,8 @@ svg:hover {
 .nav-link.active::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border: 2px dashed #ffffff; /* Changed to white dotted border */
+  inset: -2px;
+  border: 2px dashed #fff; /* Changed to white dotted border */
   border-radius: 4px;
   animation: dash 1s linear infinite;
 }
@@ -525,10 +363,7 @@ svg:hover {
 .nav-link::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: #ffeb3b; /* Keeping yellow background for contrast */
   z-index: 0;
   transform: scale(0.95);
@@ -544,7 +379,7 @@ svg:hover {
 
 .nav-link:focus .nav-link-text,
 .nav-link.active .nav-link-text {
-  color: #000000; /* Text becomes black when background is yellow */
+  color: #000; /* Text becomes black when background is yellow */
 }
 
 @keyframes dash {

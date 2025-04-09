@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   css: {
@@ -24,6 +25,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    svgr({ svgrOptions: { icon: true } }),
     {
       name: 'swc',
       async transform(code, id) {
